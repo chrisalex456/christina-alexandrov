@@ -122,6 +122,37 @@
       </figure>
     </div>
   </section>
+  <main>
+  <section class="project">
+    <div class="project-text">
+      <h2>Jet Engine Intake Fan — CFD Snapshot</h2>
+      <p>
+        I modeled a full-annulus axial intake fan in Fusion 360 and ran a compressible RANS study in
+        ANSYS Fluent 2025 R1 to compare subsonic (<em>M∞ = 0.8</em>) and transonic (<em>M∞ = 1.0</em>) inflow.
+        The setup uses the k–ω SST turbulence model, a single rotating MRF frame for the rotor, the energy
+        equation enabled, and a coupled pressure-based solver to capture velocity/pressure fields and 3D
+        pathlines through the blade passages.
+      </p>
+      <p>
+        The mesh is unstructured with leading/trailing-edge refinement and inflation layers targeting
+        <em>y</em><sup>+</sup> ≈ 30–50 (wall-function regime). Convergence was achieved to ≤ 1×10<sup>−4</sup> on
+        residuals with stable plateaus in area-averaged static pressure and mass-flow monitors. Results show
+        largely attached flow and thin wakes at <em>M∞ = 0.8</em>, while at <em>M∞ = 1.0</em> sharper suction-side
+        gradients and localized shocklets appear near the outer span with thicker wakes—consistent with
+        transonic axial-fan behavior. The open-rotor configuration demonstrates clear swirl and compression
+        but limited stage pressure ratio, motivating a follow-on study with casing, tip clearance, and
+        sliding-mesh transients.
+      </p>
+      <p>
+        <a href="Jet Engine Analysis.pdf" target="_blank"> View Project PDF</a>
+      </p>
+    </div>
+    <div class="project-image">
+      <img src="engine analysis 1.jpg" alt="Axial intake fan CFD contours and velocity-colored pathlines" width="500">
+    </div>
+  </section>
+</main>
+
 </main>
 
 <footer>
