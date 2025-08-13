@@ -74,27 +74,46 @@
   </section>
 
   <!-- Project 2: Vertical Tail Designer -->
-  <section class="project">
-    <div class="project-text">
-      <h2>Vertical Tail Designer — Aircraft Stability Tradeoffs</h2>
-      <p>
-        MATLAB parameter sweeps study how vertical-tail geometry (area, AR, height, taper, x<sub>v</sub>)
-        affects static and dynamic stability. The model computes key derivatives
-        (<em>Cl<sub>&beta;</sub></em>, <em>Cn<sub>&beta;</sub></em>, <em>Cn<sub>r</sub></em>) and visualizes sensitivities with mesh plots to guide early sizing/placement.
-      </p>
-      <ul class="tight">
-        <li>Roll/yaw stability generally improve with increased tail height and CG distance.</li>
-        <li>Rudder effectiveness depends on tail volume and placement.</li>
-      </ul>
-      <!-- Optional: link to script
-      <p><a href="aircraft_stability.m" target="_blank" rel="noopener">View MATLAB Script</a></p> -->
-    </div>
-    <div class="project-image gallery">
+<section class="project">
+  <div class="project-text">
+    <h2>Vertical Tail Designer — Aircraft Stability Tradeoffs</h2>
+    <p>
+      This study uses MATLAB parameter sweeps to quantify how vertical-tail geometry influences 
+      an aircraft’s static and dynamic stability in early design. The model varies tail 
+      <strong>area</strong>, <strong>aspect ratio</strong>, <strong>height</strong>, <strong>taper ratio</strong>, and 
+      the tail–CG lever arm <strong>x<sub>v</sub></strong>. For each configuration it computes key stability derivatives
+      — <em>Cl<sub>β</sub></em> (roll), <em>Cn<sub>β</sub></em> (directional), and <em>Cn<sub>r</sub></em> (yaw damping) — 
+      and evaluates rudder effectiveness through a yaw-moment model with deflection.
+    </p>
+    <p>
+      Results show that increasing tail height and moving the tail further aft (larger <em>x<sub>v</sub></em>) 
+      generally improve roll and yaw stability, while taper ratio provides a secondary shaping effect. 
+      Tail area primarily scales lift and directional stability, but must be balanced against weight and drag. 
+      The mesh plots below make these sensitivities visible, enabling quick trades during conceptual sizing.
+    </p>
+    <ul class="tight">
+      <li><strong>Cl<sub>β</sub>:</strong> more negative with greater height &amp; lever arm → improved roll stability.</li>
+      <li><strong>Cn<sub>β</sub>:</strong> increases with tail area and <em>x<sub>v</sub></em> → stronger directional stability.</li>
+      <li><strong>Cn<sub>r</sub>:</strong> more negative with larger tail volume → better yaw-rate damping.</li>
+    </ul>
+  </div>
+
+  <div class="project-image gallery">
+    <figure>
       <img src="effectonrolestability.png" alt="Roll stability vs tail height and taper ratio">
+      <figcaption>Roll static stability <em>Cl<sub>β</sub></em> vs. height &amp; taper.</figcaption>
+    </figure>
+    <figure>
       <img src="effectOfvisibleverticaltail.png" alt="Vertical tail lift vs area and aspect ratio">
+      <figcaption>Vertical-tail lift vs. area &amp; aspect ratio.</figcaption>
+    </figure>
+    <figure>
       <img src="Cnasafunction.png" alt="Yawing moment Cn vs xv and CnB">
-    </div>
-  </section>
+      <figcaption>Yawing moment <em>Cn</em> vs. <em>x<sub>v</sub></em> and <em>Cn<sub>β</sub></em>.</figcaption>
+    </figure>
+  </div>
+</section>
+
 
 </main>
 
