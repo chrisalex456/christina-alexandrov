@@ -20,18 +20,47 @@
   </nav>
 </header>
 
-<main>
-  <section>
-    <h2> Monte Flow — Stochastic Heat Diffusion </h2>
-    <p> 2D heat conduction solver in MATLAB with stochastic boundary conditions 
-    (Gaussian, Bimodal, Brownian). Includes 1,000-run Monte Carlo simulations, 
-    FFT-based frequency analysis, and validation against Abaqus with less than 0.1°C deviation.
-    </p>
-     <img src="matlab_heat_transfer.jpg" alt="Monte Flow heat diffusion contour plot" width="500">
-  <p>
-    <a href="Monte Flow.pdf" target="_blank">📄 View Project PDF</a>
-  </p>
+<main> 
+  <section class="project">
+    <div class="project-text">
+      <h2>Monte Flow — Stochastic Heat Diffusion</h2>
+      <p>
+        2D heat conduction solver in MATLAB with stochastic boundary conditions 
+        (Gaussian, Bimodal, Brownian). Includes 1,000-run Monte Carlo simulations, 
+        FFT-based frequency analysis, and validation against Abaqus with less than 0.1°C deviation.
+      </p>
+      <p>
+        <a href="Monte Flow.pdf" target="_blank">📄 View Project PDF</a>
+      </p>
+    </div>
+    <div class="project-image">
+      <img src="matlab_heat_transfer.jpg" alt="Monte Flow heat diffusion contour plot" width="500">
+    </div>
   </section>
+</main>
+
+<style>
+  .project {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; /* space between text and image */
+    margin-bottom: 2rem;
+  }
+  .project-text {
+    flex: 1;
+  }
+  .project-image {
+    flex: 0 0 auto;
+  }
+  @media (max-width: 768px) {
+    .project {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+</style>
+
 
   <section>
     <h2> Project 2 /h2>
