@@ -4,6 +4,28 @@
   <meta charset="UTF-8">
   <title>Projects | Christina Alexandrov</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* page-local styles; move to style.css if you prefer */
+    .project {
+      display: flex; gap: 20px; align-items: flex-start;
+      margin: 2rem 0; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px;
+      background: #fff;
+    }
+    .project-text { flex: 1; }
+    .project-image { flex: 0 0 500px; }
+    .project-image img { width: 100%; height: auto; display: block; border-radius: 8px; }
+    .tight { margin: 0 0 .75rem; padding-left: 1.1rem; }
+    .tight li { margin: .15rem 0; }
+    .gallery { display: grid; grid-template-columns: 1fr; gap: 10px; }
+
+    @media (max-width: 900px) {
+      .project { flex-direction: column; }
+      .project-image { flex: 0 0 auto; width: 100%; }
+    }
+
+    header nav ul { list-style: none; padding: 0; display: flex; gap: 1rem; }
+    header nav a.active { font-weight: 700; text-decoration: underline; }
+  </style>
 </head>
 <body>
 
@@ -13,90 +35,67 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="projects.html" class="active">Projects</a></li>
-      <li><a href="Skills.html"> Skills </a></li>
-       <li><a href="Leadership.html"> Leadership & Outreach </a></li>
+      <li><a href="Skills.html">Skills</a></li>
+      <li><a href="Leadership.html">Leadership &amp; Outreach</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 </header>
 
-<main> 
+<main>
+
+  <!-- Project 1: Monte Flow -->
   <section class="project">
     <div class="project-text">
       <h2>Monte Flow — Stochastic Heat Diffusion</h2>
       <p>
-           This project implements a custom 2D heat conduction solver in MATLAB using the finite difference method (FDM) 
-        to model temperature distribution in a square plate. To capture uncertainty, the simulation incorporates 
-        three stochastic boundary condition models — Gaussian noise, Bimodal switching, and Brownian motion — applied 
-        along one edge of the plate. 
-        </p>
-      <p>
-         Over 1,000 Monte Carlo simulations were performed to study the statistical behavior of the system, 
-        with frequency content analyzed using Fast Fourier Transform (FFT) techniques. The solver’s deterministic results 
-        were validated against a high-fidelity Abaqus finite element model, achieving less than 0.1&nbsp;°C deviation, 
-        confirming both numerical accuracy and robustness under noisy conditions.
+        This project implements a custom 2D heat conduction solver in MATLAB using the finite difference method (FDM)
+        to model temperature distribution in a square plate. To capture uncertainty, the simulation incorporates
+        three stochastic boundary condition models — Gaussian noise, Bimodal switching, and Brownian motion — applied
+        along one edge of the plate.
       </p>
       <p>
-        <a href="Monte Flow.pdf" target="_blank">📄 View Project PDF</a>
-        <p> GitHub  Code: <a href="https://github.com/chrisalex456/2D-Heat-Flow-Transfer---Monte-Carlo" target="_blank">https://github.com/chrisalex456/2D-Heat-Flow-Transfer---Monte-Carlo</a></p>
+        Over 1,000 Monte Carlo simulations were performed to study the statistical behavior of the system, with frequency
+        content analyzed using Fast Fourier Transform (FFT). The solver’s deterministic results were validated against a
+        high-fidelity Abaqus finite element model, achieving less than 0.1&nbsp;°C deviation.
+      </p>
+      <p>
+        <a href="Monte-Flow.pdf" target="_blank" rel="noopener">📄 View Project PDF</a>
+        &nbsp;|&nbsp;
+        <strong>GitHub Code:</strong>
+        <a href="https://github.com/chrisalex456/2D-Heat-Flow-Transfer---Monte-Carlo" target="_blank" rel="noopener">
+          chrisalex456/2D-Heat-Flow-Transfer---Monte-Carlo
+        </a>
       </p>
     </div>
     <div class="project-image">
-      <img src="matlab_heat_transfer.jpg" alt="Monte Flow heat diffusion contour plot" width="500">
+      <img src="matlab_heat_transfer.jpg" alt="Monte Flow heat diffusion contour plot">
     </div>
   </section>
-</main>
 
-<style>
-  .project {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px; /* space between text and image */
-    margin-bottom: 2rem;
-  }
-  .project-text {
-    flex: 1;
-  }
-  .project-image {
-    flex: 0 0 auto;
-  }
-  @media (max-width: 768px) {
-    .project {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-  }
-</style>
-
-
-  <section>
-  
-    <h2>Vertical Tail Designer — Aircraft Stability Tradeoffs</h2>
-    <p>
-      MATLAB parameter sweeps study how vertical-tail geometry (area, AR, height, taper, x<sub>v</sub>)
-      affects static and dynamic stability. The model computes key derivatives
-      (<em>Cl<sub>β</sub></em>, <em>Cn<sub>β</sub></em>, <em>Cn<sub>r</sub></em>) and visualizes sensitivities with mesh plots to guide early sizing/placement.
-    </p>
-    <ul class="tight">
-      <li>Roll/yaw stability generally improve with increased tail height and CG distance.</li>
-      <li>Rudder effectiveness depends on tail volume and placement.</li>
-    </ul>
-    <!-- optional code link -->
-    <!-- <p><a href="aircraft_stability.m" target="_blank" rel="noopener">View MATLAB Script</a></p> -->
-  </div>
-
-  <div class="project-image gallery">
-    <img src="effectonrolestability.png"
-         alt="Roll stability vs tail height and taper ratio">
-    <img src="effectOfvisibleverticaltail.png"
-         alt="Vertical tail lift vs area and aspect ratio">
-    <img src="Cnasafunction.png"
-         alt="Yawing moment Cn vs x_v and CnB">
-  </div>
-</section>
-
+  <!-- Project 2: Vertical Tail Designer -->
+  <section class="project">
+    <div class="project-text">
+      <h2>Vertical Tail Designer — Aircraft Stability Tradeoffs</h2>
+      <p>
+        MATLAB parameter sweeps study how vertical-tail geometry (area, AR, height, taper, x<sub>v</sub>)
+        affects static and dynamic stability. The model computes key derivatives
+        (<em>Cl<sub>&beta;</sub></em>, <em>Cn<sub>&beta;</sub></em>, <em>Cn<sub>r</sub></em>) and visualizes sensitivities with mesh plots to guide early sizing/placement.
+      </p>
+      <ul class="tight">
+        <li>Roll/yaw stability generally improve with increased tail height and CG distance.</li>
+        <li>Rudder effectiveness depends on tail volume and placement.</li>
+      </ul>
+      <!-- Optional: link to script
+      <p><a href="aircraft_stability.m" target="_blank" rel="noopener">View MATLAB Script</a></p> -->
+    </div>
+    <div class="project-image gallery">
+      <img src="effectonrolestability.png" alt="Roll stability vs tail height and taper ratio">
+      <img src="effectOfvisibleverticaltail.png" alt="Vertical tail lift vs area and aspect ratio">
+      <img src="Cnasafunction.png" alt="Yawing moment Cn vs xv and CnB">
+    </div>
   </section>
+
 </main>
 
 <footer>
