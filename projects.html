@@ -25,9 +25,15 @@
     <div class="project-text">
       <h2>Monte Flow — Stochastic Heat Diffusion</h2>
       <p>
-        2D heat conduction solver in MATLAB with stochastic boundary conditions 
-        (Gaussian, Bimodal, Brownian). Includes 1,000-run Monte Carlo simulations, 
-        FFT-based frequency analysis, and validation against Abaqus with less than 0.1°C deviation.
+           This project implements a custom 2D heat conduction solver in MATLAB using the finite difference method (FDM) 
+        to model temperature distribution in a square plate. To capture uncertainty, the simulation incorporates 
+        three stochastic boundary condition models — Gaussian noise, Bimodal switching, and Brownian motion — applied 
+        along one edge of the plate. 
+        
+         Over 1,000 Monte Carlo simulations were performed to study the statistical behavior of the system, 
+        with frequency content analyzed using Fast Fourier Transform (FFT) techniques. The solver’s deterministic results 
+        were validated against a high-fidelity Abaqus finite element model, achieving less than 0.1&nbsp;°C deviation, 
+        confirming both numerical accuracy and robustness under noisy conditions.
       </p>
       <p>
         <a href="Monte Flow.pdf" target="_blank">📄 View Project PDF</a>
