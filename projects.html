@@ -5,26 +5,49 @@
   <title>Projects | Christina Alexandrov</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* page-local styles; move to style.css if you prefer */
     .project {
-      display: flex; gap: 20px; align-items: flex-start;
-      margin: 2rem 0; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px;
-      background: #fff;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 2rem;
     }
-    .project-text { flex: 1; }
-    .project-image { flex: 0 0 500px; }
-    .project-image img { width: 100%; height: auto; display: block; border-radius: 8px; }
-    .tight { margin: 0 0 .75rem; padding-left: 1.1rem; }
-    .tight li { margin: .15rem 0; }
-    .gallery { display: grid; grid-template-columns: 1fr; gap: 10px; }
-
-    @media (max-width: 900px) {
-      .project { flex-direction: column; }
-      .project-image { flex: 0 0 auto; width: 100%; }
+    .project-text {
+      flex: 1;
+    }
+    .project-image {
+      flex: 0 0 auto;
+    }
+    @media (max-width: 768px) {
+      .project {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
     }
 
-    header nav ul { list-style: none; padding: 0; display: flex; gap: 1rem; }
-    header nav a.active { font-weight: 700; text-decoration: underline; }
+    /* New styling for gallery row */
+    .gallery-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap; /* stacks images on smaller screens */
+      margin-top: 1rem;
+    }
+    .gallery-row figure {
+      margin: 0;
+      text-align: center;
+      max-width: 180px; /* smaller size */
+    }
+    .gallery-row img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .gallery-row figcaption {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 4px;
+    }
   </style>
 </head>
 <body>
@@ -36,85 +59,69 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="projects.html" class="active">Projects</a></li>
       <li><a href="Skills.html">Skills</a></li>
-      <li><a href="Leadership.html">Leadership &amp; Outreach</a></li>
+      <li><a href="Leadership.html">Leadership & Outreach</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 </header>
 
-<main>
-
-  <!-- Project 1: Monte Flow -->
+<main> 
   <section class="project">
     <div class="project-text">
       <h2>Monte Flow — Stochastic Heat Diffusion</h2>
       <p>
-        This project implements a custom 2D heat conduction solver in MATLAB using the finite difference method (FDM)
-        to model temperature distribution in a square plate. To capture uncertainty, the simulation incorporates
-        three stochastic boundary condition models — Gaussian noise, Bimodal switching, and Brownian motion — applied
+        This project implements a custom 2D heat conduction solver in MATLAB using the finite difference method (FDM) 
+        to model temperature distribution in a square plate. To capture uncertainty, the simulation incorporates 
+        three stochastic boundary condition models — Gaussian noise, Bimodal switching, and Brownian motion — applied 
         along one edge of the plate.
       </p>
       <p>
-        Over 1,000 Monte Carlo simulations were performed to study the statistical behavior of the system, with frequency
-        content analyzed using Fast Fourier Transform (FFT). The solver’s deterministic results were validated against a
-        high-fidelity Abaqus finite element model, achieving less than 0.1&nbsp;°C deviation.
+        Over 1,000 Monte Carlo simulations were performed to study the statistical behavior of the system, 
+        with frequency content analyzed using Fast Fourier Transform (FFT) techniques. The solver’s deterministic results 
+        were validated against a high-fidelity Abaqus finite element model, achieving less than 0.1&nbsp;°C deviation, 
+        confirming both numerical accuracy and robustness under noisy conditions.
       </p>
       <p>
-        <a href="Monte-Flow.pdf" target="_blank" rel="noopener">📄 View Project PDF</a>
-        &nbsp;|&nbsp;
-        <strong>GitHub Code:</strong>
-        <a href="https://github.com/chrisalex456/2D-Heat-Flow-Transfer---Monte-Carlo" target="_blank" rel="noopener">
-          chrisalex456/2D-Heat-Flow-Transfer---Monte-Carlo
-        </a>
+        <a href="Monte Flow.pdf" target="_blank">📄 View Project PDF</a>
+        <br>
+        GitHub Code: <a href="https://github.com/chrisalex456/2D-Heat-Flow-Transfer---Monte-Carlo" target="_blank">
+        https://github.com/chrisalex456/2D-Heat-Flow-Transfer---Monte-Carlo</a>
       </p>
     </div>
     <div class="project-image">
-      <img src="matlab_heat_transfer.jpg" alt="Monte Flow heat diffusion contour plot">
+      <img src="matlab_heat_transfer.jpg" alt="Monte Flow heat diffusion contour plot" width="500">
     </div>
   </section>
 
-<!-- Project 2: Vertical Tail Designer -->
-<section class="project-vertical-tail">
-  <div class="project-text">
-    <h2>Vertical Tail Designer — Aircraft Stability Tradeoffs</h2>
-    <p>
-      This study uses MATLAB parameter sweeps to quantify how vertical-tail geometry influences 
-      an aircraft’s static and dynamic stability in early design. The model varies tail 
-      <strong>area</strong>, <strong>aspect ratio</strong>, <strong>height</strong>, <strong>taper ratio</strong>, and 
-      the tail–CG lever arm <strong>x<sub>v</sub></strong>. For each configuration it computes key stability derivatives
-      — <em>Cl<sub>β</sub></em> (roll), <em>Cn<sub>β</sub></em> (directional), and <em>Cn<sub>r</sub></em> (yaw damping) — 
-      and evaluates rudder effectiveness through a yaw-moment model with deflection.
-    </p>
-    <p>
-      Results show that increasing tail height and moving the tail further aft (larger <em>x<sub>v</sub></em>) 
-      generally improve roll and yaw stability, while taper ratio provides a secondary shaping effect. 
-      Tail area primarily scales lift and directional stability, but must be balanced against weight and drag. 
-      The mesh plots below make these sensitivities visible, enabling quick trades during conceptual sizing.
-    </p>
-    <ul class="tight">
-      <li><strong>Cl<sub>β</sub>:</strong> more negative with greater height &amp; lever arm → improved roll stability.</li>
-      <li><strong>Cn<sub>β</sub>:</strong> increases with tail area and <em>x<sub>v</sub></em> → stronger directional stability.</li>
-      <li><strong>Cn<sub>r</sub>:</strong> more negative with larger tail volume → better yaw-rate damping.</li>
-    </ul>
-  </div>
+  <section class="project">
+    <div class="project-text">
+      <h2>Vertical Tail Designer — Aircraft Stability Tradeoffs</h2>
+      <p>
+        This MATLAB tool performs parameter sweeps to evaluate how vertical tail geometry (area, aspect ratio, height, taper ratio, and longitudinal placement <em>x<sub>v</sub></em>) 
+        affects both static and dynamic stability in aircraft design. The model calculates stability derivatives such as 
+        <em>Cl<sub>β</sub></em>, <em>Cn<sub>β</sub></em>, and <em>Cn<sub>r</sub></em> while generating sensitivity plots to aid early sizing and placement decisions.
+      </p>
+      <ul>
+        <li>Roll/yaw stability generally improves with increased tail height and CG distance.</li>
+        <li>Rudder effectiveness depends strongly on tail volume and position.</li>
+      </ul>
+    </div>
 
-  <div class="gallery-row">
-    <figure>
-      <img src="effectonrolestability.png" alt="Roll stability vs tail height and taper ratio">
-      <figcaption>Roll static stability <em>Cl<sub>β</sub></em> vs. height &amp; taper.</figcaption>
-    </figure>
-    <figure>
-      <img src="effectOfvisibleverticaltail.png" alt="Vertical tail lift vs area and aspect ratio">
-      <figcaption>Vertical-tail lift vs. area &amp; aspect ratio.</figcaption>
-    </figure>
-    <figure>
-      <img src="Cnasafunction.png" alt="Yawing moment Cn vs xv and CnB">
-      <figcaption>Yawing moment <em>Cn</em> vs. <em>x<sub>v</sub></em> and <em>Cn<sub>β</sub></em>.</figcaption>
-    </figure>
-  </div>
-</section>
-
-
+    <div class="gallery-row">
+      <figure>
+        <img src="effectonrolestability.png" alt="Roll stability vs tail height and taper ratio">
+        <figcaption>Effect on Roll Stability</figcaption>
+      </figure>
+      <figure>
+        <img src="effectOfvisibleverticaltail.png" alt="Vertical tail lift vs area and aspect ratio">
+        <figcaption>Effect on Lift</figcaption>
+      </figure>
+      <figure>
+        <img src="Cnasafunction.png" alt="Yawing moment Cn vs x_v and CnB">
+        <figcaption>Yawing Moment vs. x<sub>v</sub> &amp; CnB</figcaption>
+      </figure>
+    </div>
+  </section>
 </main>
 
 <footer>
