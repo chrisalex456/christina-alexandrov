@@ -71,9 +71,31 @@
 
 
   <section>
-    <h2> Project 2 /h2>
-    <p> .</p>
-    <img src="images/hypersonic.png" alt="Hypersonic design" width="500">
+  
+    <h2>Vertical Tail Designer — Aircraft Stability Tradeoffs</h2>
+    <p>
+      MATLAB parameter sweeps study how vertical-tail geometry (area, AR, height, taper, x<sub>v</sub>)
+      affects static and dynamic stability. The model computes key derivatives
+      (<em>Cl<sub>β</sub></em>, <em>Cn<sub>β</sub></em>, <em>Cn<sub>r</sub></em>) and visualizes sensitivities with mesh plots to guide early sizing/placement.
+    </p>
+    <ul class="tight">
+      <li>Roll/yaw stability generally improve with increased tail height and CG distance.</li>
+      <li>Rudder effectiveness depends on tail volume and placement.</li>
+    </ul>
+    <!-- optional code link -->
+    <!-- <p><a href="aircraft_stability.m" target="_blank" rel="noopener">View MATLAB Script</a></p> -->
+  </div>
+
+  <div class="project-image gallery">
+    <img src="images/effectonrolestability.png"
+         alt="Roll stability vs tail height and taper ratio">
+    <img src="images/effectOfvisibleverticaltail.png"
+         alt="Vertical tail lift vs area and aspect ratio">
+    <img src="images/Cnasafunction.png"
+         alt="Yawing moment Cn vs x_v and CnB">
+  </div>
+</section>
+
   </section>
 </main>
 
