@@ -1,52 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Projects | Christina Alexandrov</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <style>
-    .project {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      margin-bottom: 2rem;
+    /* Shared project layout (matches your first card) */
+    .project{
+      display:flex; align-items:flex-start; gap:20px; margin-bottom:2.25rem;
     }
-    .project-text {
-      flex: 1;
-    }
-    .project-image {
-      flex: 0 0 auto;
-    }
-    @media (max-width: 768px) {
-      .project {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-    }
+    .project-text{ flex:1; }
+    .project-image{ flex:0 0 auto; max-width:520px }
+    .project-image img{ width:100%; height:auto; border-radius:8px; display:block; }
 
-    /* New styling for gallery row */
-    .gallery-row {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap; /* stacks images on smaller screens */
-      margin-top: 1rem;
-    }
-    .gallery-row figure {
-      margin: 0;
-      text-align: center;
-      max-width: 180px; /* smaller size */
-    }
-    .gallery-row img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    .gallery-row figcaption {
-      font-size: 0.8rem;
-      color: #6b7280;
-      margin-top: 4px;
+    /* Small thumb row (optional) */
+    .thumb-row{ display:flex; gap:10px; margin-top:10px; }
+    .thumb-row img{ width:33%; border-radius:6px; }
+
+    @media (max-width: 768px){
+      .project{ flex-direction:column; align-items:center; text-align:left; }
+      .project-image{ width:100%; max-width:620px; }
     }
   </style>
 </head>
@@ -65,118 +38,93 @@
   </nav>
 </header>
 
-<main> 
+<main>
+
+  <!-- 1) Monte Flow (unchanged) -->
   <section class="project">
     <div class="project-text">
       <h2>Monte Flow — Stochastic Heat Diffusion</h2>
       <p>
-        This project implements a custom 2D heat conduction solver in MATLAB using the finite difference method (FDM) 
-        to model temperature distribution in a square plate. To capture uncertainty, the simulation incorporates 
-        three stochastic boundary condition models — Gaussian noise, Bimodal switching, and Brownian motion — applied 
+        This project implements a custom 2D heat conduction solver in MATLAB using the finite difference method (FDM)
+        to model temperature distribution in a square plate. To capture uncertainty, the simulation incorporates
+        three stochastic boundary condition models — Gaussian noise, Bimodal switching, and Brownian motion — applied
         along one edge of the plate.
       </p>
       <p>
-        Over 1,000 Monte Carlo simulations were performed to study the statistical behavior of the system, 
-        with frequency content analyzed using Fast Fourier Transform (FFT) techniques. The solver’s deterministic results 
-        were validated against a high-fidelity Abaqus finite element model, achieving less than 0.1&nbsp;°C deviation, 
+        Over 1,000 Monte Carlo simulations were performed to study the statistical behavior of the system,
+        with frequency content analyzed using Fast Fourier Transform (FFT) techniques. The solver’s deterministic results
+        were validated against a high-fidelity Abaqus finite element model, achieving less than 0.1&nbsp;°C deviation,
         confirming both numerical accuracy and robustness under noisy conditions.
       </p>
       <p>
-        <a href="Monte Flow.pdf" target="_blank">📄 View Project PDF</a>
-        <br>
-        GitHub Code: <a href="https://github.com/chrisalex456/2D-Heat-Flow-Transfer---Monte-Carlo" target="_blank">
-        https://github.com/chrisalex456/2D-Heat-Flow-Transfer---Monte-Carlo</a>
+        <a href="Monte Flow.pdf" target="_blank">📄 View Project PDF</a><br>
+        GitHub Code:
+        <a href="https://github.com/chrisalex456/2D-Heat-Flow-Transfer---Monte-Carlo" target="_blank">
+          https://github.com/chrisalex456/2D-Heat-Flow-Transfer---Monte-Carlo
+        </a>
       </p>
     </div>
     <div class="project-image">
-      <img src="matlab_heat_transfer.jpg" alt="Monte Flow heat diffusion contour plot" width="500">
+      <img src="matlab_heat_transfer.jpg" alt="Monte Flow heat diffusion contour plot">
     </div>
   </section>
 
-<section class="project project--two-col">
-  <div class="project-text">
-    <h2>Vertical Tail Designer — Aircraft Stability Tradeoffs</h2>
-
-    <p class="lede">
-      MATLAB-based parametric sweeps quantify how vertical tail geometry
-      (area, aspect ratio, height, taper ratio, and longitudinal placement
-      <em>x<sub>v</sub></em>) shapes static and dynamic stability. The tool
-      computes key derivatives — <em>Cl<sub>β</sub></em>, <em>Cn<sub>β</sub></em>,
-      <em>Cn<sub>r</sub></em> — and generates sensitivity plots to guide early sizing
-      and placement decisions.
-    </p>
-
-    <ul class="bullets">
-      <li><strong>Stability trends:</strong> Roll/yaw stability generally improves with increased tail height and CG distance.</li>
-      <li><strong>Control authority:</strong> Rudder effectiveness scales strongly with tail volume and <em>x<sub>v</sub></em>.</li>
-    </ul>
-
-    <div class="chip-row">
-      <span class="chip">Parametric sweeps</span>
-      <span class="chip">Stability derivatives</span>
-      <span class="chip">Sensitivity plots</span>
+  <!-- 2) Vertical Tail Designer — now same layout as #1 -->
+  <section class="project">
+    <div class="project-text">
+      <h2>Vertical Tail Designer — Aircraft Stability Tradeoffs</h2>
+      <p>
+        This MATLAB tool performs parameter sweeps to evaluate how vertical tail geometry (area, aspect ratio, height,
+        taper ratio, and longitudinal placement <em>x<sub>v</sub></em>) affects static and dynamic stability. The model
+        calculates key derivatives — <em>Cl<sub>β</sub></em>, <em>Cn<sub>β</sub></em>, <em>Cn<sub>r</sub></em> — and
+        generates sensitivity plots to guide early sizing and placement decisions.
+      </p>
+      <ul>
+        <li>Roll/yaw stability generally improves with increased tail height and CG distance.</li>
+        <li>Rudder effectiveness depends strongly on tail volume and position.</li>
+      </ul>
+      <p>
+        <a href="VerticalTailDesigner.pdf" target="_blank">📄 View Project PDF</a><br>
+        GitHub Code:
+        <a href="https://github.com/chrisalex456/VerticalTailDesigner" target="_blank">
+          https://github.com/chrisalex456/VerticalTailDesigner
+        </a>
+      </p>
     </div>
-
-    <div class="project-links">
-      <a class="btn btn--primary" href="VerticalTailDesigner.pdf" target="_blank" rel="noopener" aria-label="View Project PDF">
-        📄 View Project PDF
-      </a>
-      <a class="btn btn--ghost" href="https://github.com/chrisalex456/VerticalTailDesigner" target="_blank" rel="noopener">
-        GitHub Code ↗
-      </a>
-    </div>
-  </div>
-
-  <div class="project-media">
-    <div class="gallery-grid">
-      <figure class="card">
-        <img src="effectonrolestability.png" alt="Roll stability vs. tail height and taper ratio">
-        <figcaption>Effect on Roll Stability</figcaption>
-      </figure>
-
-      <figure class="card">
+    <div class="project-image">
+      <!-- Choose one hero image; optional thumbs underneath -->
+      <img src="effectonrolestability.png" alt="Roll stability vs. tail height and taper ratio">
+      <div class="thumb-row">
         <img src="effectOfvisibleverticaltail.png" alt="Vertical tail lift vs. area and aspect ratio">
-        <figcaption>Effect on Lift</figcaption>
-      </figure>
-
-      <figure class="card">
         <img src="Cnasafunction.png" alt="Yawing moment coefficient Cn vs. x_v and Cnβ">
-        <figcaption>Yawing Moment vs. x<sub>v</sub> &amp; Cn<sub>β</sub></figcaption>
-      </figure>
+      </div>
     </div>
-  </div>
-</section>
   </section>
-  <main>
+
+  <!-- 3) Jet Engine Intake Fan — now same layout as #1 -->
   <section class="project">
     <div class="project-text">
       <h2>Jet Engine Intake Fan — CFD Snapshot</h2>
       <p>
-        I modeled a full-annulus axial intake fan in Fusion 360 and ran a compressible RANS study in
-        ANSYS Fluent 2025 R1 to compare subsonic (<em>M∞ = 0.8</em>) and transonic (<em>M∞ = 1.0</em>) inflow.
-        The setup uses the k–ω SST turbulence model, a single rotating MRF frame for the rotor, the energy
-        equation enabled, and a coupled pressure-based solver to capture velocity/pressure fields and 3D
-        pathlines through the blade passages.
+        I modeled a full-annulus axial intake fan in Fusion 360 and ran a compressible RANS study in ANSYS Fluent 2025 R1
+        to compare subsonic (<em>M∞ = 0.8</em>) and transonic (<em>M∞ = 1.0</em>) inflow. The setup uses the k–ω SST turbulence
+        model, a single rotating MRF frame, the energy equation enabled, and a coupled pressure-based solver to capture
+        velocity/pressure fields and 3D pathlines through the blade passages.
       </p>
       <p>
         The mesh is unstructured with leading/trailing-edge refinement and inflation layers targeting
-        <em>y</em><sup>+</sup> ≈ 30–50 (wall-function regime). Convergence was achieved to ≤ 1×10<sup>−4</sup> on
-        residuals with stable plateaus in area-averaged static pressure and mass-flow monitors. Results show
-        largely attached flow and thin wakes at <em>M∞ = 0.8</em>, while at <em>M∞ = 1.0</em> sharper suction-side
-        gradients and localized shocklets appear near the outer span with thicker wakes—consistent with
-        transonic axial-fan behavior. The open-rotor configuration demonstrates clear swirl and compression
-        but limited stage pressure ratio, motivating a follow-on study with casing, tip clearance, and
-        sliding-mesh transients.
+        <em>y</em><sup>+</sup> ≈ 30–50 (wall-function regime). Results show attached flow and thin wakes at
+        <em>M∞ = 0.8</em>, while at <em>M∞ = 1.0</em> sharper suction-side gradients and localized shocklets appear near the
+        outer span—consistent with transonic axial-fan behavior.
       </p>
       <p>
-        <a href="Jet Engine Analysis.pdf" target="_blank"> View Project PDF</a>
+        <a href="Jet Engine Analysis.pdf" target="_blank">📄 View Project PDF</a>
       </p>
     </div>
     <div class="project-image">
-      <img src="engine analysis 1.jpg" alt="Axial intake fan CFD contours and velocity-colored pathlines" width="500">
+      <img src="engine analysis 1.jpg" alt="Axial intake fan CFD contours and velocity-colored pathlines">
     </div>
   </section>
-</main>
 
 </main>
 
