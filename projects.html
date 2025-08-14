@@ -93,41 +93,59 @@
     </div>
   </section>
 
-  <section class="project">
-    <div class="project-text">
-      <h2>Vertical Tail Designer — Aircraft Stability Tradeoffs</h2>
-      <p>
-        This MATLAB tool performs parameter sweeps to evaluate how vertical tail geometry (area, aspect ratio, height, taper ratio, and longitudinal placement <em>x<sub>v</sub></em>) 
-        affects both static and dynamic stability in aircraft design. The model calculates stability derivatives such as 
-        <em>Cl<sub>β</sub></em>, <em>Cn<sub>β</sub></em>, and <em>Cn<sub>r</sub></em> while generating sensitivity plots to aid early sizing and placement decisions.
-      </p>
-      <ul>
-        <li>Roll/yaw stability generally improves with increased tail height and CG distance.</li>
-        <li>Rudder effectiveness depends strongly on tail volume and position.</li>
-      </ul>
-    </div>
-     <p>
-        <a href="Monte Flow.pdf" target="_blank">📄 View Project PDF</a>
-        <br>
-        GitHub Code: <a href="https://github.com/chrisalex456/VerticalTailDesigner" target="_blank">
-        https://github.com/chrisalex456/VerticalTailDesigner</a>
-      </p>
-    <br>
+<section class="project project--two-col">
+  <div class="project-text">
+    <h2>Vertical Tail Designer — Aircraft Stability Tradeoffs</h2>
 
-    <div class="gallery-row">
-      <figure>
-        <img src="effectonrolestability.png" alt="Roll stability vs tail height and taper ratio">
+    <p class="lede">
+      MATLAB-based parametric sweeps quantify how vertical tail geometry
+      (area, aspect ratio, height, taper ratio, and longitudinal placement
+      <em>x<sub>v</sub></em>) shapes static and dynamic stability. The tool
+      computes key derivatives — <em>Cl<sub>β</sub></em>, <em>Cn<sub>β</sub></em>,
+      <em>Cn<sub>r</sub></em> — and generates sensitivity plots to guide early sizing
+      and placement decisions.
+    </p>
+
+    <ul class="bullets">
+      <li><strong>Stability trends:</strong> Roll/yaw stability generally improves with increased tail height and CG distance.</li>
+      <li><strong>Control authority:</strong> Rudder effectiveness scales strongly with tail volume and <em>x<sub>v</sub></em>.</li>
+    </ul>
+
+    <div class="chip-row">
+      <span class="chip">Parametric sweeps</span>
+      <span class="chip">Stability derivatives</span>
+      <span class="chip">Sensitivity plots</span>
+    </div>
+
+    <div class="project-links">
+      <a class="btn btn--primary" href="VerticalTailDesigner.pdf" target="_blank" rel="noopener" aria-label="View Project PDF">
+        📄 View Project PDF
+      </a>
+      <a class="btn btn--ghost" href="https://github.com/chrisalex456/VerticalTailDesigner" target="_blank" rel="noopener">
+        GitHub Code ↗
+      </a>
+    </div>
+  </div>
+
+  <div class="project-media">
+    <div class="gallery-grid">
+      <figure class="card">
+        <img src="effectonrolestability.png" alt="Roll stability vs. tail height and taper ratio">
         <figcaption>Effect on Roll Stability</figcaption>
       </figure>
-      <figure>
-        <img src="effectOfvisibleverticaltail.png" alt="Vertical tail lift vs area and aspect ratio">
+
+      <figure class="card">
+        <img src="effectOfvisibleverticaltail.png" alt="Vertical tail lift vs. area and aspect ratio">
         <figcaption>Effect on Lift</figcaption>
       </figure>
-      <figure>
-        <img src="Cnasafunction.png" alt="Yawing moment Cn vs x_v and CnB">
-        <figcaption>Yawing Moment vs. x<sub>v</sub> &amp; CnB</figcaption>
+
+      <figure class="card">
+        <img src="Cnasafunction.png" alt="Yawing moment coefficient Cn vs. x_v and Cnβ">
+        <figcaption>Yawing Moment vs. x<sub>v</sub> &amp; Cn<sub>β</sub></figcaption>
       </figure>
     </div>
+  </div>
+</section>
   </section>
   <main>
   <section class="project">
